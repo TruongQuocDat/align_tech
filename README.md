@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please run step by step:
 
-Things you may want to cover:
+Install Gemfile
+`bundle install`
 
-* Ruby version
+Install Yarn
+`yarn install`
 
-* System dependencies
+Create DB
+`rake db:create`
 
-* Configuration
+Migrate table
+`rake db:migrate`
 
-* Database creation
+Create data seed
+`rake db:seed`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please open 2 terminal
+ - 1 tab: `bin/webpack-dev-server`
+ - 1 tab start server (for local development): `rails s`

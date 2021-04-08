@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | AlignTech
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      - if current_admin
+        p Account: #{current_admin.email}
+        p = link_to 'Logout', destroy_admin_session_path, method: :delete
+    hr
+
+    - if flash.present?
+      - flash.each do |type, msg|
+        div.flash-error
+          = msg
+    = yield
