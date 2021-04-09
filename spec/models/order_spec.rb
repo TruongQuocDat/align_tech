@@ -17,9 +17,14 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Order < ApplicationRecord
-  belongs_to :user
-  enum status: { confirmed: 0, approved: 1, rejected: 2 }
+require 'rails_helper'
 
-  validates :name, presence: true
+RSpec.describe Order, type: :model do
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
+  describe 'validate' do
+    it { is_expected.to validate_presence_of(:name) }
+  end
 end

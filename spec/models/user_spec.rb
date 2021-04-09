@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -18,11 +16,14 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+require 'rails_helper'
 
-  has_many :orders
+RSpec.describe User, type: :model do
+  describe 'associations' do
+    it { should have_many(:orders) }
+  end
+
+  describe 'validate' do
+    it { is_expected.to validate_presence_of(:email) }
+  end
 end

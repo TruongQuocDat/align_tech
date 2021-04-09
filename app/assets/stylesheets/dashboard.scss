@@ -1,0 +1,119 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.body {
+  height: 100%;
+}
+
+.header-custom {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #808080;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 2px 4px rgb(0,0,0);
+	z-index: 4;
+	height: 75px;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	height: 72px;
+	margin-right: auto;
+	padding-left: 24px;
+	-webkit-font-smoothing: auto;
+	text-decoration: none;
+
+	.brand__logo {
+		display: block;
+		width: 50px;
+		height: 50px;
+		margin-right: 16px;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.brand__title {
+		display: inline;
+		color: #ffffff;
+	}
+}
+
+.nav {
+	margin-left: auto;
+}
+
+.body-container {
+	display: flex;
+	justify-content: flex-start;
+	max-width: 100%;
+
+	.filter-order {
+    color: #FFF;
+    width: 100%;
+    height: 72px;
+    padding: 0 24px;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+	}
+
+	.content-container {
+		display: block;
+    width: 100%;
+		margin-top: 75px;
+
+		.content {
+			padding-right: 40px;
+			padding-left: 40px;
+			width: 100%;
+			display: block;
+			margin-top: 30px;
+			overflow: visible;
+		}
+	}
+
+	.sidebar-admin {
+    display: block;
+    min-width: 280px;
+		z-index: 3;
+		border-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--mdc-theme-surface, #fff);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    height: 100%;
+    border-right-width: 1px;
+    border-right-style: solid;
+    overflow: hidden;
+    transition-property: transform;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		padding-bottom: 40px;
+		margin-top: 75px;
+
+		.sidebar-admin__content {
+			height: 100%;
+      overflow-y: auto;
+		}
+	}
+
+	footer {
+		color: #424242;
+    background-color: #fafafa;
+    font-size: 0.875rem;
+		line-height: 1.8;
+		padding-right: 40px;
+		padding-left: 40px;
+		height: 75px;
+	}
+}

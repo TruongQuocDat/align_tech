@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root 'dashboard#index'
-    resources :dashboard
+    resources :dashboard, only: %w[index edit update]
   end
 end

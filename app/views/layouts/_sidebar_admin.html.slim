@@ -1,10 +1,7 @@
-.d-flex.flex-column.p-3 style=("width: 280px;")
-  ul.nav.nav-pills.flex-column.mb-auto
-    li.nav-item
-      a.nav-link.text-black
-        | Home
-    li
-      a.nav-link.text-black
-        | Dashboard
+.sidebar-admin
+  .sidebar-admin__content
+    ul.nav.nav-pills.flex-column.mb-auto
+      li
+        = link_to 'Orders', admins_dashboard_index_path, class: 'nav-link'
 
 

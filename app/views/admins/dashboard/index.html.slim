@@ -1,13 +1,29 @@
-.row
-  .col-lg-12
-    table.table.table-bordered
-      tr
-        th Name
-        th Status
-        th Action
-      - if @orders.present?
-        - @orders.each do |order|
-          tr
-            td = order.name
-            td = order.status
-            td = link_to 'Edit', edit_admins_dashboard_path(order.id), class: 'btn btn-primary'
+.content
+  h2 List Order
+  .filter-order
+    = form_tag admins_dashboard_index_path, class: 'w-100', method: :get do
+      .d-flex
+        .form
+          .form-group
+            = select_tag :status, options_for_select(Order.statuses.keys, params[:status]), class: 'form-control', include_blank: 'All Status'
+        .form.ml-5
+          .form-group
+            = select_tag :user_id, options_for_select(user_order, params[:user_id]), class: 'form-control', include_blank: 'All User'
+        .col-lg-2.ml-auto.mr-3
+          .form.text-right
+            .form-froup
+              = submit_tag 'Search', class: 'btn btn-primary'
+
+  table.table.table-bordered
+    tr
+      th Name
+      th User
+      th Status
+      th Action
+    - if @orders.present?
+      - @orders.each do |order|
+        tr
+          td = order.name
+          td = order.user.email
+          td = order.status
+          td = link_to 'Edit', edit_admins_dashboard_path(order.id), class: 'btn btn-primary'
