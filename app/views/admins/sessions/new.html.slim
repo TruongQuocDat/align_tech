@@ -1,17 +1,14 @@
-h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "admins/shared/links"
+.text-center
+  main.form-signin.mt-5.w-25.mx-auto
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      h2.mb-3.fw-normal Login
+      .form-floating
+        = f.label :email, class: 'float-left'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'name@example.com', type: 'email'
+      br
+      .form-floating
+        = f.label :password, class: 'float-left'
+        = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: '********', type: 'password'
+      br
+      = f.submit "Log in", class: 'button w-100 btn btn-lg btn-primary'
+  = render "admins/shared/links"
