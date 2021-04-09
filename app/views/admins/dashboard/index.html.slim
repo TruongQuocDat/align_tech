@@ -1,0 +1,13 @@
+.row
+  .col-lg-12
+    table.table.table-bordered
+      tr
+        th Name
+        th Status
+        th Action
+      - if @orders.present?
+        - @orders.each do |order|
+          tr
+            td = order.name
+            td = order.status
+            td = link_to 'Edit', edit_admins_dashboard_path(order.id), class: 'btn btn-primary'
