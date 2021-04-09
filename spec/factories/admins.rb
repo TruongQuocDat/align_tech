@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: admins
@@ -19,13 +17,11 @@
 #  index_admins_on_email                 (email) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class Admin < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :validatable
-
-  enum role: { admin: 0 }
-
-  validates :password, presence: true
-  validates :email, presence: true
+FactoryBot.define do
+  factory :admin do
+    sequence :email do |n|
+      "admin#{n}-#{Time.current.to_i}@example.com"
+    end
+    password { 'Abcd@1234' }
+  end
 end

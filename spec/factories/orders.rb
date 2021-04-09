@@ -17,9 +17,8 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Order < ApplicationRecord
-  belongs_to :user
-  enum status: { confirmed: 0, approved: 1, rejected: 2 }
-
-  validates :name, presence: true
+FactoryBot.define do
+  factory :order do
+    name { Faker::Name.unique.name }
+  end
 end

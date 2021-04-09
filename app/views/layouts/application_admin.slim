@@ -16,7 +16,8 @@ html
     header
       - if current_admin
         = render 'layouts/header'
-    container
-      .d-flex
-        = render "layouts/sidebar_admin"
+    .body-container
+      = render "layouts/sidebar_admin"
+      .content-container
         = yield
+        = render 'layouts/footer'

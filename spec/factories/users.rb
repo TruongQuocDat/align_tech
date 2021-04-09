@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -18,11 +16,11 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  has_many :orders
+FactoryBot.define do
+  factory :user do
+    sequence :email do |n|
+      "user#{n}-#{Time.current.to_i}@example.com"
+    end
+    password { 'Abcd@1234' }
+  end
 end

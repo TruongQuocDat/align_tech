@@ -1,6 +1,8 @@
-header.p-3.text-black.border-bottom-1
-  .d-flex.col-lg-12.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
-    = image_tag 'svg/award.svg', width: 50
-    .col-lg-4.float-right.ml-auto.text-right
-      = current_admin.email
-      = link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'btn btn-warning ml-3'
+header.header-custom
+  .brand
+    .brand__logo
+      = image_tag 'svg/award.svg'
+    span.brand__title TechAlign
+  .nav.align-items-center.justify-content-center.justify-content-lg-start.mr-3
+    = current_admin.email
+    = link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'btn btn-warning ml-3'

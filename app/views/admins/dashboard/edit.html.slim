@@ -1,8 +1,9 @@
-= form_for @order, url: admins_dashboard_path, html: { class: 'form-vertical' }, method: :put do |f|
-  .form-group
-    = @order.name
-  .form-group
-    = f.label :status
-    = f.select :status, options_for_select(Order.statuses.keys, @order.status), {}, class: 'form-control'
-  .form-group
-    = f.submit 'Submit', class: 'btn btn-primary'
+.content
+  = form_for @order, url: admins_dashboard_path, html: { class: 'form-vertical' }, method: :put do |f|
+    .form-group Order Name: #{@order.name}
+    .form-group User order: #{@order.user.email}
+    .form-group
+      = f.label :status
+      = f.select :status, options_for_select(Order.statuses.keys, @order.status), {}, class: 'form-control'
+    .form-group
+      = f.submit 'Update', class: 'btn btn-primary'
